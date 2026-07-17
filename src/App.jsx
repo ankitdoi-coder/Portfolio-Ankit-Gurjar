@@ -9,6 +9,7 @@ import Process from './components/Process';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import FloatingContact from './components/FloatingContact';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <FloatingContact />
     </div>
   );
 }
