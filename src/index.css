@@ -15,3 +15,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon{
+      bottom: 3.5rem;
+      right: 4.5rem;
+}
+.what{
+  height:3rem;
+  width:3rem;
+}
