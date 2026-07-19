@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ImagePlus, ArrowRight, ExternalLink, CheckCircle2 } from 'lucide-react';
 import khandelwalDental from '../assets/khandelwal-dental-clinic.png';
+import pizzaworld from '../assets/pizzaworld.png;';
 
 // TODO (Ankit): Replace the remaining placeholder entry with your next real
 // delivered client project — business type, the problem the client had,
@@ -19,7 +20,26 @@ const caseStudies = [
     status: 'Live & deployed',
     screenshot: khandelwalDental,
     live: 'https://khandelwalclinic.netlify.app',
-  }
+  },
+  {
+    placeholder: false,
+    business: 'Pizza World — The Unlimited Italian Food Factory',
+    category: 'Restaurant & Buffet — Local Business Website',
+    problem: 'Needed a bold, high-energy website to showcase the unlimited buffet concept, menu, and cafe experience, and turn visitors into table reservations.',
+    built: 'A vibrant, animated single-page site with a cinematic hero, buffet walkthrough, interactive menu & gallery, live offers, and a direct reserve-table flow with map, call, and WhatsApp.',
+    features: [
+      'Animated hero & scroll-reveal sections',
+      'Interactive menu grid with pricing',
+      'Buffet "how it works" steps',
+      'Photo gallery with lightbox',
+      'Offers & reviews sections',
+      'Reserve table via call / WhatsApp + embedded map',
+    ],
+    tech: ['React', 'TanStack Router', 'Tailwind CSS', 'Vite'],
+    status: 'Live & deployed',
+    screenshot: pizzaWorld,
+    live: 'https://pizzaworldjaipur.netlify.app/',
+  },
 ];
 
 export default function Freelance() {
