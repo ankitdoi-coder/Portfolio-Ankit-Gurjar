@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ImagePlus, ArrowRight, ExternalLink, CheckCircle2 } from 'lucide-react';
 import khandelwalDental from '../assets/khandelwal-dental-clinic.png';
-import pizzaworld from '../assets/pizzaworld.png;';
+import pizzaWorld from '../assets/pizzaworld.jpg';
 
 // TODO (Ankit): Replace the remaining placeholder entry with your next real
 // delivered client project — business type, the problem the client had,
