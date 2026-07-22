@@ -3,7 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ImagePlus, ArrowRight, ExternalLink, CheckCircle2 } from 'lucide-react';
 import khandelwalDental from '../assets/khandelwal-dental-clinic.png';
-import pizzaWorld from '../assets/pizzaworld.jpg';
+import pizzaWorld from '../assets/pizzaworld.jpg';  
+import kitchen21 from '../assets/theKitchen21.jpg';  
 
 // TODO (Ankit): Replace the remaining placeholder entry with your next real
 // delivered client project — business type, the problem the client had,
@@ -39,6 +40,25 @@ const caseStudies = [
     status: 'Live & deployed',
     screenshot: pizzaWorld,
     live: 'https://pizzaworldjaipur.netlify.app/',
+  },
+  {
+    placeholder: false,
+    business: 'The Kitchen 21 — Pure Veg Multi-Cuisine Family Restaurant',
+    category: 'Restaurant & Dining — Local Business Website',
+    problem: 'Needed an elegant and warm digital presence to showcase their decade-long legacy, multi-cuisine pure-veg menu, and inviting ambiance, while driving table reservations directly via WhatsApp.',
+    built: 'A sophisticated, fully responsive single-page application featuring a cinematic hero with floating animations, signature dish showcases, categorized menus, an immersive gallery, and a seamless WhatsApp reservation system.',
+    features: [
+      'Cinematic hero with scroll-reveal & floating animations',
+      'Signature dishes showcase with dynamic spice-level meters',
+      'Categorized interactive menu grid with pricing',
+      'Photo gallery with lightbox viewing',
+      'Guest reviews, FAQ accordion, and daily offers sections',
+      'Direct WhatsApp table reservation form & embedded Google Map',
+    ],
+    tech: ['React', 'TanStack Router', 'Tailwind CSS', 'Vite', 'Lucide React'],
+    status: 'Live & deployed',
+    screenshot: kitchen21, // Make sure to import your screenshot variable to match this
+    live: 'https://thekitchen21.netlify.app/',
   },
 ];
 
