@@ -146,7 +146,7 @@ export default function Hero() {
 
           <div className="mt-4 flex items-center justify-between rounded-xl border border-[#232A32] bg-[#12161B] px-5 py-4">
             <div>
-              <div className="font-['Space_Grotesk'] text-lg font-semibold text-white">3+ yrs</div>
+              <div className="font-['Space_Grotesk'] text-lg font-semibold text-white"></div>
               <div className="font-['JetBrains_Mono'] text-[11px] text-[#8B96A3]">production experience</div>
             </div>
             <div className="h-8 w-px bg-[#232A32]" />
