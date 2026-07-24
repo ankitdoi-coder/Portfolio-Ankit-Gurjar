@@ -5,46 +5,35 @@ import { Code2, Database, Server, Box, GitBranch, Network } from 'lucide-react';
 
 const skills = [
   {
-    category: 'Backend Development (Spring Boot)',
+    category: 'Backend Development',
     icon: Code2,
-    items: ['Java 17', 'Spring Boot', 'Spring MVC', 'REST API Design', 'Hibernate & JPA', 'SQL', 'Debugging & Performance Optimization'],
-    gradient: 'from-cyan-500 to-blue-600',
-    glowColor: 'cyan-500',
+    items: ['Java 17', 'Spring Boot', 'Spring MVC', 'REST API Design', 'Hibernate & JPA', 'SQL', 'Perf. optimization'],
   },
   {
     category: 'Frontend Integration',
     icon: Box,
     items: ['React.js', 'Angular', 'TypeScript', 'HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
-    gradient: 'from-orange-500 to-red-600',
-    glowColor: 'orange-500',
   },
   {
     category: 'Databases',
     icon: Database,
-    items: ['MySQL', 'PostgreSQL', 'Redis', 'Schema Design', 'Query Optimization'],
-    gradient: 'from-green-500 to-emerald-600',
-    glowColor: 'green-500',
+    items: ['MySQL', 'PostgreSQL', 'Redis', 'Schema design', 'Query optimization'],
   },
   {
-    category: 'API Security & Authentication',
+    category: 'API Security & Auth',
     icon: Server,
-    items: ['JWT Authentication', 'Spring Security', 'OAuth 2.0', 'Role-Based Access Control', 'API Documentation (Swagger/OpenAPI)', 'Bean Validation'],
-    gradient: 'from-purple-500 to-pink-600',
-    glowColor: 'purple-500',
+    items: ['JWT', 'Spring Security', 'OAuth 2.0', 'RBAC', 'Swagger/OpenAPI', 'Bean validation'],
   },
   {
     category: 'Tools & Collaboration',
     icon: GitBranch,
-    items: ['Git & GitHub', 'Maven', 'Docker', 'Postman', 'Cloudinary', 'Agile Workflow', 'Payment Gateway Integration (Razorpay)'],
-    gradient: 'from-pink-500 to-rose-600',
-    glowColor: 'pink-500',
+    items: ['Git & GitHub', 'Maven', 'Docker', 'Postman', 'Cloudinary', 'Agile', 'Razorpay integration','Groq / LLM APIs'],
   },
   {
-    category: 'Familiar With',
+    category: 'Familiar with',
     icon: Network,
-    items: ['Microservices Architecture', 'Eureka Server / API Gateway', 'JUnit', 'Jira', 'Jenkins', 'Kafka', 'OpenAI / LLM API Integration'],
-    gradient: 'from-teal-500 to-cyan-600',
-    glowColor: 'teal-500',
+    items: ['Microservices', 'Eureka / API Gateway', 'JUnit', 'Jira', 'Jenkins', 'Kafka'],
+    exploring: true,
   },
 ];
 
@@ -53,74 +42,66 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="skills" className="relative py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-500/5 via-transparent to-transparent"></div>
-
-      <div className="relative max-w-6xl mx-auto">
+    <section id="skills" className="relative overflow-hidden bg-[#0B0E11] px-4 py-24 sm:px-6">
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-16"
         >
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={isInView ? { scale: 1, opacity: 1 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-block mb-4"
-          >
-            <span className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold">
-              Tech Stack
-            </span>
-          </motion.div>
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <div className="flex items-center gap-2 font-['JetBrains_Mono'] text-xs text-[#7EE787]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#7EE787]" />
+            // tech-stack
+          </div>
+          <h2 className="mt-3 font-['Space_Grotesk'] text-4xl font-semibold text-white sm:text-5xl">
             Technical Skills
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            The stack behind secure, scalable backend systems
+          <p className="mt-3 max-w-xl text-[#8B96A3]">
+            The stack behind secure, scalable backend systems — grouped the way it actually gets used.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, index) => {
-            const isSecondary = skill.category === 'Familiar With';
-            return (
-              <motion.div
-                key={skill.category}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-r ${skill.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
-
-                <div className="relative h-full bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-700 hover:border-slate-600 transition-all duration-300 hover:transform hover:-translate-y-2">
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className={`p-3 bg-gradient-to-br ${skill.gradient} rounded-xl shadow-lg`}>
-                      <skill.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className={`font-bold ${isSecondary ? 'text-lg text-slate-400' : 'text-xl'}`}>{skill.category}</h3>
-                  </div>
-
-                  <ul className="space-y-3">
-                    {skill.items.map((item, itemIndex) => (
-                      <motion.li
-                        key={item}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.3, delay: index * 0.1 + itemIndex * 0.05 }}
-                        className={`flex items-center gap-3 group/item ${isSecondary ? 'text-slate-400 text-sm' : 'text-slate-300'}`}
-                      >
-                        <div className={`bg-gradient-to-r ${skill.gradient} rounded-full shrink-0 group-hover/item:scale-150 transition-transform duration-300 ${isSecondary ? 'w-1.5 h-1.5' : 'w-2 h-2'}`}></div>
-                        <span className="group-hover/item:text-white group-hover/item:translate-x-1 transition-all duration-300">{item}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.category}
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className={`group relative rounded-2xl border p-6 transition-colors duration-300 ${
+                skill.exploring
+                  ? 'border-dashed border-[#232A32] bg-transparent hover:border-[#8B96A3]/50'
+                  : 'border-[#232A32] bg-[#12161B] hover:border-[#7EE787]/40'
+              }`}
+            >
+              <div className="mb-5 flex items-center gap-3">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#232A32] bg-[#0F1317] text-[#7EE787]">
+                  <skill.icon className="h-4.5 w-4.5" />
                 </div>
-              </motion.div>
-            );
-          })}
+                <h3 className="font-['Space_Grotesk'] text-lg font-semibold text-white">
+                  {skill.category}
+                </h3>
+                {skill.exploring && (
+                  <span className="ml-auto font-['JetBrains_Mono'] text-[10px] uppercase tracking-wide text-[#8B96A3]">
+                    exploring
+                  </span>
+                )}
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {skill.items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-md border border-[#232A32] bg-[#0F1317] px-2.5 py-1 font-['JetBrains_Mono'] text-xs text-[#C4CBD2] transition-colors group-hover:border-[#7EE787]/25"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

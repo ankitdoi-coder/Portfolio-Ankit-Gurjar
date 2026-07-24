@@ -19,43 +19,50 @@ export default function Process() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="process" className="relative py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white px-4 overflow-hidden">
-      <div className="relative max-w-6xl mx-auto">
+    <section id="process" className="relative overflow-hidden bg-[#0B0E11] px-4 py-24 sm:px-6">
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-16"
         >
-          <span className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-semibold">
-            How I Work
-          </span>
-          <h2 className="text-5xl md:text-6xl font-extrabold mt-4 mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <div className="flex items-center gap-2 font-['JetBrains_Mono'] text-xs text-[#7EE787]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#7EE787]" />
+            // how-i-work
+          </div>
+          <h2 className="mt-3 font-['Space_Grotesk'] text-4xl font-semibold text-white sm:text-5xl">
             From Idea to Production
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="mt-3 max-w-xl text-[#8B96A3]">
             The same process for a client website and a production backend system.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="relative bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-700 hover:border-slate-600 transition-all duration-300"
+              className="relative rounded-2xl border border-[#232A32] bg-[#12161B] p-6 transition-colors hover:border-[#7EE787]/30"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-2.5 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shrink-0">
-                  <step.icon className="w-5 h-5 text-white" />
+              <div className="mb-4 flex items-center justify-between">
+                <div className="grid h-10 w-10 place-items-center rounded-lg border border-[#232A32] bg-[#0F1317] text-[#7EE787]">
+                  <step.icon className="h-4.5 w-4.5" />
                 </div>
-                <span className="text-slate-500 text-sm font-mono">{String(index + 1).padStart(2, '0')}</span>
+                <span className="font-['JetBrains_Mono'] text-sm text-[#7EE787]/70">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
               </div>
-              <h3 className="font-bold text-lg mb-2">{step.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+              <h3 className="mb-2 font-['Space_Grotesk'] text-lg font-semibold text-white">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-[#8B96A3]">{step.desc}</p>
+
+              {index < steps.length - 1 && (
+                <span className="absolute -right-2.5 top-1/2 hidden h-px w-5 -translate-y-1/2 bg-[#232A32] lg:block" />
+              )}
             </motion.div>
           ))}
         </div>

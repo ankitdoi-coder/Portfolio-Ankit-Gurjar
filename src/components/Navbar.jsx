@@ -1,139 +1,137 @@
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Menu, X, Code2 } from 'lucide-react';
-import pfp from '../assets/pfp.png'
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import pfp from '../assets/pfp.png';
+
+const navLinks = [
+    { name: 'home', href: '#home' },
+    { name: 'skills', href: '#skills' },
+    { name: 'projects', href: '#projects' },
+    { name: 'freelance', href: '#freelance' },
+    { name: 'experience', href: '#experience' },
+    { name: 'contact', href: '#contact' },
+];
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    const navLinks = [
-        { name: 'Home', href: '#home' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Freelance', href: '#freelance' },
-        { name: 'Experience', href: '#experience' },
-        { name: 'Contact', href: '#contact' }
-    ];
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 12);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
         <motion.nav
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-lg border-b border-slate-800/50"
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className={`fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${
+                scrolled ? 'border-[#232A32] bg-[#0B0E11]/90 backdrop-blur-lg' : 'border-transparent bg-transparent'
+            }`}
         >
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="flex items-center justify-between h-20">
-                    <motion.a
-                        href="#home"
-                        className="flex items-center gap-3 group"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-                            <div className="relative p-1 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl">
-                                <img className='rounded-xl w-12 h-12 object-cover' src={pfp} alt="Ankit Kumar Gurjar" loading="eager" />
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                <div className="flex h-18 items-center justify-between py-3">
+                    <a href="#home" className="group flex items-center gap-3">
+                        <div className="h-10 w-10 overflow-hidden rounded-lg border border-[#232A32]">
+                            <img src={pfp} alt="Ankit Kumar Gurjar" className="h-full w-full object-cover" loading="eager" />
+                        </div>
+                        <div className="leading-tight">
+                            <div className="font-['Space_Grotesk'] text-base font-semibold text-white">
+                                Ankit Kumar Gurjar
+                            </div>
+                            <div className="font-['JetBrains_Mono'] text-[10px] text-[#7EE787]">
+                                ~/backend-developer
                             </div>
                         </div>
-                        <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                            Ankit Kumar Gurjar
-                        </span>
-                    </motion.a>
+                    </a>
 
-                    <div className="hidden md:flex items-center gap-1">
+                    <div className="hidden items-center gap-1 md:flex">
                         {navLinks.map((link, index) => (
                             <motion.a
                                 key={link.name}
                                 href={link.href}
-                                initial={{ opacity: 0, y: -20 }}
+                                initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.3, delay: index * 0.1 }}
-                                className="relative px-5 py-2 text-slate-300 hover:text-white font-medium transition-colors duration-300 group"
+                                transition={{ duration: 0.3, delay: index * 0.05 }}
+                                className="group relative px-4 py-2 font-['JetBrains_Mono'] text-sm text-[#8B96A3] transition-colors hover:text-white"
                             >
-                                <span className="relative z-10">{link.name}</span>
-                                <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
-                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 group-hover:w-full transition-all duration-300"></span>
+                                <span className="text-[#7EE787]/70">/</span>
+                                {link.name}
+                                <span className="absolute bottom-1 left-4 right-4 h-px scale-x-0 bg-[#7EE787] transition-transform duration-300 group-hover:scale-x-100" />
                             </motion.a>
                         ))}
                     </div>
 
-                    <motion.a
-                        href="https://drive.google.com/file/d/1mYUUA8vQKMGI79utD4Dt0d2X4OVzW7Lm/view?usp=sharing"
-                        download="Ankit_Kumar_Gurjar_Resume.pdf"
-                        className="hidden md:block relative px-6 py-3 border-2 border-cyan-500 hover:bg-cyan-500/10 rounded-xl font-bold transition-all duration-300"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        target="_blank"
-                    >
-                        <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                    <div className="hidden items-center gap-3 md:flex">
+                        <a
+                            href="https://drive.google.com/file/d/1mYUUA8vQKMGI79utD4Dt0d2X4OVzW7Lm/view?usp=sharing"
+                            target="_blank"
+                            rel="noreferrer"
+                            download="Ankit_Kumar_Gurjar_Resume.pdf"
+                            className="rounded-lg border border-[#232A32] px-5 py-2.5 font-['Space_Grotesk'] text-sm font-semibold text-[#E6E9EC] transition-colors hover:border-[#7EE787]/50 hover:text-[#7EE787]"
+                        >
                             Resume
-                        </span>
-                    </motion.a>
-
-                    <motion.a
-                        href="#contact"
-                        className="hidden md:block relative px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold overflow-hidden group"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <span className="relative z-10">Hire Me</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </motion.a>
-
-                    <motion.button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-2 text-white hover:bg-slate-800 rounded-lg transition-colors duration-300"
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                    </motion.button>
-                </div>
-
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden pb-4 space-y-2"
-                    >
-                        {navLinks.map((link, index) => (
-                            <motion.a
-                                key={link.name}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: index * 0.05 }}
-                                className="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg font-medium transition-all duration-300"
-                            >
-                                {link.name}
-                            </motion.a>
-                        ))}
-                        <motion.a
+                        </a>
+                        <a
                             href="#contact"
-                            onClick={() => setIsOpen(false)}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: navLinks.length * 0.05 }}
-                            className="block px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-center rounded-lg font-bold"
+                            className="rounded-lg bg-[#7EE787] px-5 py-2.5 font-['Space_Grotesk'] text-sm font-semibold text-[#0B0E11] transition-transform hover:scale-[1.03]"
                         >
                             Hire Me
-                        </motion.a>
+                        </a>
+                    </div>
 
-                        <motion.a
-                            href="/resume.pdf"
-                            download="Ankit_Kumar_Gurjar_Resume.pdf"
-                            onClick={() => setIsOpen(false)}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: (navLinks.length + 1) * 0.05 }}
-                            className="block px-4 py-3 border-2 border-cyan-500 text-cyan-400 text-center rounded-lg font-bold"
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
+                        className="grid h-11 w-11 place-items-center rounded-lg border border-[#232A32] text-[#E6E9EC] md:hidden"
+                    >
+                        {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                    </button>
+                </div>
+
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden pb-4 md:hidden"
                         >
-                            Download Resume
-                        </motion.a>
-                    </motion.div>
-                )}
+                            <div className="space-y-1 border-t border-[#232A32] pt-3">
+                                {navLinks.map((link) => (
+                                    <a
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="block rounded-lg px-3 py-3 font-['JetBrains_Mono'] text-sm text-[#8B96A3] transition-colors hover:bg-[#12161B] hover:text-white"
+                                    >
+                                        <span className="text-[#7EE787]/70">/</span> {link.name}
+                                    </a>
+                                ))}
+                                <a
+                                    href="#contact"
+                                    onClick={() => setIsOpen(false)}
+                                    className="mt-2 block rounded-lg bg-[#7EE787] px-4 py-3 text-center font-['Space_Grotesk'] text-sm font-semibold text-[#0B0E11]"
+                                >
+                                    Hire Me
+                                </a>
+                                <a
+                                    href="/resume.pdf"
+                                    download="Ankit_Kumar_Gurjar_Resume.pdf"
+                                    onClick={() => setIsOpen(false)}
+                                    className="block rounded-lg border border-[#232A32] px-4 py-3 text-center font-['Space_Grotesk'] text-sm font-semibold text-[#E6E9EC]"
+                                >
+                                    Download Resume
+                                </a>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </motion.nav>
     );

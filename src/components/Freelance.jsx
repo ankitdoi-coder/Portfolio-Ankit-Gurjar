@@ -3,13 +3,33 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ImagePlus, ArrowRight, ExternalLink, CheckCircle2 } from 'lucide-react';
 import khandelwalDental from '../assets/khandelwal-dental-clinic.png';
-import pizzaWorld from '../assets/pizzaworld.jpg';  
-import kitchen21 from '../assets/theKitchen21.jpg';  
+import pizzaWorld from '../assets/pizzaworld.jpg';
+import kitchen21 from '../assets/theKitchen21.jpg';
+import deliciousYard from '../assets/thedeliciousyard.jpg';
 
 // TODO (Ankit): Replace the remaining placeholder entry with your next real
 // delivered client project — business type, the problem the client had,
 // what you built, a screenshot, and a live link if the site is still up.
 const caseStudies = [
+  {
+    placeholder: false,
+    business: 'The Delicious Yard — Luxury Family Restaurant',
+    category: 'Restaurant & Garden Dining — Local Business Website',
+    problem: 'Needed a luxury, celebration-focused website to stand out from typical restaurant pages — one that captured their lush garden setting and converted birthday/anniversary/kitty-party enquiries into WhatsApp bookings.',
+    built: 'An elegant, motion-rich single-page site with a cinematic parallax hero, garden-themed gallery, categorized menu explorer, and dedicated celebrations showcase — all funneling straight into a WhatsApp reservation flow.',
+    features: [
+      'Parallax scroll hero with floating garden motifs',
+      'Interactive tabbed menu (North Indian, Chinese, Italian, Desserts)',
+      'Celebrations showcase (birthdays, anniversaries, kitty parties)',
+      'Masonry photo gallery with hover reveals',
+      'Guest reviews & Google rating summary',
+      'WhatsApp reservation flow + embedded Google Map',
+    ],
+    tech: ['React', 'TanStack Router', 'Motion (Framer Motion)', 'Tailwind CSS', 'Vite'],
+    status: 'Live & deployed',
+    screenshot: deliciousYard,
+    live: 'https://thedeliciousyardjaipur.netlify.app/',
+  },
   {
     placeholder: false,
     business: 'Khandelwal Dental Clinic and Implant Centre',
@@ -67,87 +87,112 @@ export default function Freelance() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="freelance" className="relative py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white px-4 overflow-hidden">
-      <div className="relative max-w-6xl mx-auto">
+    <section id="freelance" className="relative overflow-hidden bg-[#0B0E11] px-4 py-24 sm:px-6">
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-14"
+          transition={{ duration: 0.6 }}
+          className="mb-14"
         >
-          <span className="px-4 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-full text-orange-400 text-sm font-semibold">
-            For Businesses
-          </span>
-          <h2 className="text-5xl md:text-6xl font-extrabold mt-4 mb-4 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+          <div className="flex items-center gap-2 font-['JetBrains_Mono'] text-xs text-[#7EE787]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#7EE787]" />
+            // for-businesses
+          </div>
+          <h2 className="mt-3 font-['Space_Grotesk'] text-4xl font-semibold text-white sm:text-5xl">
             I Build Digital Products for Businesses
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="mt-3 max-w-2xl text-[#8B96A3]">
             Whether you need a professional website or a custom full-stack application, I can build and deliver it.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2">
           {caseStudies.map((project, index) =>
             project.placeholder ? (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative bg-slate-800/60 rounded-3xl border border-dashed border-slate-600 p-8 flex flex-col"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="flex flex-col rounded-3xl border border-dashed border-[#232A32] p-8"
               >
-                <div className="flex items-center justify-center h-40 mb-6 rounded-2xl bg-slate-900/60 border border-slate-700 text-slate-600">
-                  <ImagePlus className="w-10 h-10" />
+                <div className="mb-6 flex h-40 items-center justify-center rounded-2xl border border-[#232A32] bg-[#0F1317] text-[#8B96A3]">
+                  <ImagePlus className="h-9 w-9" />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wide text-orange-400/80 mb-2">Case study placeholder</span>
-                <h3 className="text-xl font-bold mb-3 text-slate-200">{project.category}</h3>
-                <p className="text-slate-400 text-sm mb-2"><span className="text-slate-500">Problem: </span>{project.problem}</p>
-                <p className="text-slate-400 text-sm mb-4"><span className="text-slate-500">Built: </span>{project.built}</p>
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="mb-2 font-['JetBrains_Mono'] text-xs uppercase tracking-wide text-[#8B96A3]">
+                  case study placeholder
+                </span>
+                <h3 className="mb-3 font-['Space_Grotesk'] text-xl font-semibold text-[#C4CBD2]">
+                  {project.category}
+                </h3>
+                <p className="mb-2 text-sm text-[#8B96A3]">
+                  <span className="text-[#6C7784]">Problem: </span>{project.problem}
+                </p>
+                <p className="mb-4 text-sm text-[#8B96A3]">
+                  <span className="text-[#6C7784]">Built: </span>{project.built}
+                </p>
+                <div className="mt-auto flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span key={t} className="px-3 py-1 bg-slate-900/60 border border-slate-700 rounded-lg text-xs text-slate-500">{t}</span>
+                    <span
+                      key={t}
+                      className="rounded-md border border-[#232A32] px-2.5 py-1 font-['JetBrains_Mono'] text-xs text-[#6C7784]"
+                    >
+                      {t}
+                    </span>
                   ))}
                 </div>
               </motion.div>
             ) : (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative bg-slate-800/80 backdrop-blur-sm rounded-3xl border border-slate-700 hover:border-orange-500/40 transition-all duration-500 overflow-hidden flex flex-col"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="group flex flex-col overflow-hidden rounded-3xl border border-[#232A32] bg-[#12161B] transition-colors hover:border-[#7EE787]/30"
               >
-                <div className="relative h-48 overflow-hidden border-b border-slate-700">
+                <div className="relative h-48 overflow-hidden border-b border-[#232A32]">
                   <img
                     src={project.screenshot}
                     alt={`${project.business} website screenshot`}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 bg-slate-900/90 rounded-full text-xs font-semibold text-emerald-400 border border-emerald-500/30">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-md border border-[#7EE787]/30 bg-[#0B0E11]/90 px-3 py-1 font-['JetBrains_Mono'] text-xs text-[#7EE787]">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
                     {project.status}
                   </span>
                 </div>
 
-                <div className="p-8 flex flex-col flex-1">
-                  <span className="text-xs font-bold uppercase tracking-wide text-orange-400 mb-2">{project.category}</span>
-                  <h3 className="text-2xl font-bold mb-3 text-white">{project.business}</h3>
-                  <p className="text-slate-400 text-sm mb-3"><span className="text-slate-500 font-semibold">Problem: </span>{project.problem}</p>
-                  <p className="text-slate-400 text-sm mb-4"><span className="text-slate-500 font-semibold">Built: </span>{project.built}</p>
+                <div className="flex flex-1 flex-col p-8">
+                  <span className="mb-2 font-['JetBrains_Mono'] text-xs uppercase tracking-wide text-[#7EE787]">
+                    {project.category}
+                  </span>
+                  <h3 className="mb-3 font-['Space_Grotesk'] text-2xl font-semibold text-white">{project.business}</h3>
+                  <p className="mb-3 text-sm text-[#8B96A3]">
+                    <span className="font-semibold text-[#C4CBD2]">Problem: </span>{project.problem}
+                  </p>
+                  <p className="mb-4 text-sm text-[#8B96A3]">
+                    <span className="font-semibold text-[#C4CBD2]">Built: </span>{project.built}
+                  </p>
 
-                  <ul className="grid grid-cols-2 gap-x-3 gap-y-1.5 mb-5">
+                  <ul className="mb-5 grid grid-cols-2 gap-x-3 gap-y-1.5">
                     {project.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-slate-300 text-xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-red-600 shrink-0"></span>
+                      <li key={f} className="flex items-center gap-2 text-xs text-[#C4CBD2]">
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#7EE787]" />
                         {f}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="mb-6 flex flex-wrap gap-2">
                     {project.tech.map((t) => (
-                      <span key={t} className="px-3 py-1 bg-slate-900/60 border border-slate-700 rounded-lg text-xs text-slate-300">{t}</span>
+                      <span
+                        key={t}
+                        className="rounded-md border border-[#232A32] bg-[#0F1317] px-2.5 py-1 font-['JetBrains_Mono'] text-xs text-[#C4CBD2]"
+                      >
+                        {t}
+                      </span>
                     ))}
                   </div>
 
@@ -155,9 +200,9 @@ export default function Freelance() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30"
+                    className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#7EE787] px-5 py-3 font-['Space_Grotesk'] text-sm font-semibold text-[#0B0E11] transition-transform hover:scale-[1.02]"
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="h-4 w-4" />
                     View Live Site
                   </a>
                 </div>
@@ -170,18 +215,20 @@ export default function Freelance() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center bg-gradient-to-br from-slate-800/90 to-slate-900/90 border border-slate-700 rounded-3xl p-10"
+          className="rounded-3xl border border-[#232A32] bg-[#12161B] p-10 text-center"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-3">Have a project in mind?</h3>
-          <p className="text-slate-400 mb-6 max-w-xl mx-auto">
+          <h3 className="mb-3 font-['Space_Grotesk'] text-2xl font-semibold text-white sm:text-3xl">
+            Have a project in mind?
+          </h3>
+          <p className="mx-auto mb-6 max-w-xl text-[#8B96A3]">
             Let's build something that actually works for your business — from a landing page to a full custom application.
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#7EE787] px-8 py-4 font-['Space_Grotesk'] text-lg font-semibold text-[#0B0E11] transition-transform hover:scale-[1.02]"
           >
             Let's Talk About Your Project
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="h-5 w-5" />
           </a>
         </motion.div>
       </div>

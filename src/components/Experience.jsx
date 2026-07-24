@@ -1,15 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Briefcase } from 'lucide-react';
-import { title } from 'framer-motion/client';
 
 const experiences = [
     {
         title: 'Software Developer (Backend – Spring Boot)',
         company: 'SAG Infotech Pvt. Ltd.',
-        period: 'Nov 2025 - Present',
+        period: 'Nov 2025 - Feb 2026',
         achievements: [
             'Developed 15+ Spring Boot REST APIs currently running in production',
             'Reduced API response time by optimizing PostgreSQL queries',
@@ -38,47 +36,59 @@ export default function Experience() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section id="experience" className="py-20 bg-slate-900 text-white px-4">
-            <div className="max-w-6xl mx-auto">
+        <section id="experience" className="relative bg-[#0B0E11] px-4 py-24 sm:px-6">
+            <div className="mx-auto max-w-5xl">
                 <motion.div
                     ref={ref}
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
+                    transition={{ duration: 0.6 }}
+                    className="mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">Professional Experience</h2>
-                    <p className="text-slate-400 text-lg">Hands-on experience building, fixing, and maintaining production-grade applications</p>
+                    <div className="flex items-center gap-2 font-['JetBrains_Mono'] text-xs text-[#7EE787]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#7EE787]" />
+                        // experience
+                    </div>
+                    <h2 className="mt-3 font-['Space_Grotesk'] text-4xl font-semibold text-white sm:text-5xl">
+                        Professional Experience
+                    </h2>
+                    <p className="mt-3 max-w-xl text-[#8B96A3]">
+                        Hands-on experience building, fixing, and maintaining production-grade applications.
+                    </p>
                 </motion.div>
 
                 <div className="space-y-8">
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={exp.title + exp.company}
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 0, x: -30 }}
                             animate={isInView ? { opacity: 1, x: 0 } : {}}
-                            transition={{ duration: 0.5, delay: index * 0.2 }}
-                            className="relative pl-8 border-l-2 border-orange-500"
+                            transition={{ duration: 0.5, delay: index * 0.15 }}
+                            className="relative border-l-2 border-[#232A32] pl-8"
                         >
-                            <div className="absolute -left-3 top-0 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                                <Briefcase className="w-3 h-3 text-slate-900" />
+                            <div className="absolute -left-[13px] top-0 grid h-6 w-6 place-items-center rounded-full bg-[#7EE787]">
+                                <Briefcase className="h-3 w-3 text-[#0B0E11]" />
                             </div>
 
-                            <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div className="rounded-2xl border border-[#232A32] bg-[#12161B] p-6 transition-colors hover:border-[#7EE787]/25">
+                                <div className="mb-4 flex flex-col md:flex-row md:items-center md:justify-between">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-orange-500">{exp.title}</h3>
-                                        <p className="text-xl text-slate-300">{exp.company}</p>
+                                        <h3 className="font-['Space_Grotesk'] text-2xl font-semibold text-white">{exp.title}</h3>
+                                        <p className="mt-0.5 text-lg text-[#C4CBD2]">{exp.company}</p>
                                     </div>
-                                    <span className="text-slate-400 mt-2 md:mt-0">{exp.period}</span>
+                                    <span className="mt-2 font-['JetBrains_Mono'] text-xs text-[#7EE787] md:mt-0">
+                                        {exp.period}
+                                    </span>
                                 </div>
 
-                                <p className="text-slate-300 mb-4">{exp.description}</p>
+                                {exp.description && (
+                                    <p className="mb-4 text-sm leading-relaxed text-[#8B96A3]">{exp.description}</p>
+                                )}
 
                                 <ul className="space-y-2">
                                     {exp.achievements.map((achievement) => (
-                                        <li key={achievement} className="text-slate-400 flex items-start gap-3">
-                                            <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
+                                        <li key={achievement} className="flex items-start gap-3 text-sm text-[#8B96A3]">
+                                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#7EE787]" />
                                             <span>{achievement}</span>
                                         </li>
                                     ))}
@@ -88,8 +98,11 @@ export default function Experience() {
                     ))}
                 </div>
 
-                <div className="mt-12 text-center">
-                    <p className="text-slate-400 text-lg italic">💡 Comfortable working on existing codebases and improving them without breaking production systems.</p>
+                <div className="mt-12 rounded-2xl border border-dashed border-[#232A32] px-6 py-5 text-center">
+                    <p className="font-['JetBrains_Mono'] text-sm text-[#8B96A3]">
+                        <span className="text-[#7EE787]">note:</span> comfortable working on existing codebases and
+                        improving them without breaking production systems.
+                    </p>
                 </div>
             </div>
         </section>

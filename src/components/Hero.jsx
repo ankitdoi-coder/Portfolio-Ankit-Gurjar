@@ -1,168 +1,167 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Code2, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 import pfp from '../assets/pfp.png';
 
+const STACK = ['Java 17', 'Spring Boot 3', 'PostgreSQL', 'Redis', 'JWT', 'REST APIs', 'Angular'];
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+});
+
 export default function Hero() {
-    return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white px-4 pt-20">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-500/20 via-transparent to-transparent"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent"></div>
+  return (
+    <section className="relative min-h-screen overflow-hidden bg-[#0B0E11] px-4 pt-28 pb-16 text-[#E6E9EC] sm:px-6">
+      {/* subtle grid, not a gradient blob */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            'linear-gradient(#232A32 1px, transparent 1px), linear-gradient(90deg, #232A32 1px, transparent 1px)',
+          backgroundSize: '44px 44px',
+        }}
+      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-[#7EE787]/[0.06] to-transparent" />
 
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute w-96 h-96 -top-48 -right-48 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute w-96 h-96 -bottom-48 -left-48 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
+        {/* LEFT: pitch */}
+        <div>
+          <motion.div {...fadeUp(0)} className="mb-6 flex items-center gap-3">
+            <div className="h-9 w-9 overflow-hidden rounded-lg border border-[#232A32]">
+              <img src={pfp} alt="Ankit Kumar Gurjar" className="h-full w-full object-cover" loading="eager" />
             </div>
+            <span className="font-['JetBrains_Mono'] text-xs tracking-wide text-[#8B96A3]">
+              <span className="text-[#7EE787]">$</span> whoami
+            </span>
+          </motion.div>
 
-            <div className="relative max-w-6xl mx-auto z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center"
-                >
-                    <motion.div
-                        initial={{ scale: 0, rotate: -180 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                        className="mb-8 relative inline-block"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur-xl opacity-50 animate-pulse"></div>
-                        <div className="relative bg-gradient-to-br from-cyan-500 to-blue-600 p-2 rounded-2xl">
-                            <img className="w-20 h-20 rounded-xl object-cover" src={pfp} alt="Ankit Kumar Gurjar" loading="eager" />
-                        </div>
-                    </motion.div>
+          <motion.h1
+            {...fadeUp(0.1)}
+            className="font-['Space_Grotesk'] text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]"
+          >
+            Backend systems that hold up when it's not a demo anymore.
+          </motion.h1>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="flex items-center justify-center gap-2 mb-4"
-                    >
-                        <Sparkles className="w-6 h-6 text-cyan-400" />
-                        <span className="text-cyan-400 font-semibold text-lg">Spring Boot Backend Developer</span>
+          <motion.p {...fadeUp(0.2)} className="mt-6 max-w-lg text-lg leading-relaxed text-[#8B96A3]">
+            I'm Ankit — a Java / Spring Boot developer building secure APIs and backend systems
+            for startups, plus complete, production-ready websites for local businesses.
+          </motion.p>
 
-                        <Sparkles className="w-6 h-6 text-cyan-400" />
-                    </motion.div>
+          <motion.div {...fadeUp(0.3)} className="mt-8 flex flex-wrap gap-2">
+            {STACK.map((s) => (
+              <span
+                key={s}
+                className="flex items-center gap-1.5 rounded-md border border-[#232A32] bg-[#12161B] px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#C4CBD2]"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-[#7EE787]" />
+                {s}
+              </span>
+            ))}
+          </motion.div>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent leading-tight"
-                    >
-                        Java Backend Developer — Spring Boot, REST APIs & Redis
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6, duration: 0.8 }}
-                        className="text-xl md:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed"
-                    >
-                        I help startups and businesses build secure APIs, backend systems, and complete web applications that actually work in production.
-                    </motion.p>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.7, duration: 0.8 }}
-                        className="text-lg text-slate-400 mb-8"
-                    >
-                        Production experience • Java & Spring Boot
-                    </motion.p>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 0.8 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                    >
-                        <a
-                            href="#contact"
-                            className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/50"
-                        >
-                            <span className="relative z-10">Fix or Build Backend APIs</span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </a>
-                        <a
-                            href="#projects"
-                            className="px-6 py-3 border-2 border-cyan-500 hover:bg-cyan-500/10 rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30"
-                        >
-                            Build a Complete Website
-                        </a>
-                        <a href="/resume.pdf"
-                            download="Ankit_Kumar_Gurjar_Resume.pdf"
-                            className="px-6 py-3 border-2 border-slate-500 hover:border-cyan-500 hover:bg-cyan-500/10 rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105">
-
-                            Download Resume
-                        </a>
-                    </motion.div>
-
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.75 }}
-                        className="flex flex-wrap justify-center gap-2 mb-8 mt-3"
-                    >
-                        {['Java 17', 'Spring Boot 3', 'PostgreSQL', 'Redis', 'JWT', 'REST APIs', 'Angular'].map((skill) => (
-                            <span key={skill} className="px-3 py-1 bg-slate-800/80 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-medium">
-                                {skill}
-                            </span>
-                        ))}
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1, duration: 0.8 }}
-                        className="flex gap-6 justify-center mt-16"
-                    >
-                        <a
-                            href="https://github.com/ankitdoi-coder"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group p-4 bg-slate-800/50 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-600 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/50"
-                        >
-                            <Github className="w-6 h-6" />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/ankit-kumar-gurjar/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group p-4 bg-slate-800/50 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-600 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/50"
-                        >
-                            <Linkedin className="w-6 h-6" />
-                        </a>
-                        <a
-                            href="mailto:ankitdoi82@gmail.com"
-                            className="group p-4 bg-slate-800/50 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-600 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/50"
-                        >
-                            <Mail className="w-6 h-6" />
-                        </a>
-                    </motion.div>
-                </motion.div>
-            </div>
-
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          <motion.div {...fadeUp(0.4)} className="mt-10 flex flex-wrap items-center gap-3">
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 rounded-lg bg-[#7EE787] px-6 py-3.5 font-['Space_Grotesk'] text-sm font-semibold text-[#0B0E11] transition-transform hover:scale-[1.02]"
             >
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                    className="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center"
-                >
-                    <motion.div
-                        animate={{ y: [0, 12, 0] }}
-                        transition={{ repeat: Infinity, duration: 2 }}
-                        className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2"
-                    ></motion.div>
-                </motion.div>
-            </motion.div>
-        </section >
-    );
+              Fix or Build Backend APIs
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="#projects"
+              className="rounded-lg border border-[#232A32] px-6 py-3.5 font-['Space_Grotesk'] text-sm font-semibold text-[#E6E9EC] transition-colors hover:border-[#7EE787]/50 hover:text-[#7EE787]"
+            >
+              Build a Complete Website
+            </a>
+            <a
+              href="/resume.pdf"
+              download="Ankit_Kumar_Gurjar_Resume.pdf"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#232A32] px-5 py-3.5 text-sm font-medium text-[#8B96A3] transition-colors hover:text-[#E6E9EC]"
+            >
+              <Download className="h-4 w-4" /> Resume
+            </a>
+          </motion.div>
+
+          <motion.div {...fadeUp(0.5)} className="mt-10 flex gap-3">
+            {[
+              { icon: Github, href: 'https://github.com/ankitdoi-coder', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/ankit-kumar-gurjar/', label: 'LinkedIn' },
+              { icon: Mail, href: 'mailto:ankitdoi82@gmail.com', label: 'Email' },
+            ].map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                aria-label={label}
+                className="grid h-11 w-11 place-items-center rounded-lg border border-[#232A32] text-[#8B96A3] transition-colors hover:border-[#7EE787]/50 hover:text-[#7EE787]"
+              >
+                <Icon className="h-4.5 w-4.5" />
+              </a>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* RIGHT: signature terminal panel */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
+        >
+          <div className="overflow-hidden rounded-2xl border border-[#232A32] bg-[#0F1317] shadow-[0_0_0_1px_rgba(126,231,135,0.06)]">
+            <div className="flex items-center justify-between border-b border-[#232A32] px-4 py-3">
+              <div className="flex gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#3A424B]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#3A424B]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#3A424B]" />
+              </div>
+              <span className="flex items-center gap-1.5 font-['JetBrains_Mono'] text-[11px] text-[#7EE787]">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#7EE787]" />
+                200 OK · 42ms
+              </span>
+            </div>
+
+            <div className="p-5 font-['JetBrains_Mono'] text-[13px] leading-relaxed">
+              <p className="text-[#8B96A3]">
+                <span className="text-[#7EE787]">$</span> curl -s api.ankit.dev/profile | jq
+              </p>
+              <pre className="mt-3 whitespace-pre-wrap text-[#C4CBD2]">
+{`{
+  "name": "Ankit Kumar Gurjar",
+  "role": "Backend Developer",
+  "focus": ["Spring Boot", "REST APIs", "Redis"],
+  "also_ships": "full business websites",
+  "status": "production-ready"
+}`}
+              </pre>
+              <p className="mt-3 text-[#8B96A3]">
+                <span className="text-[#7EE787]">$</span>{' '}
+                <span className="inline-block h-3.5 w-2 animate-pulse bg-[#7EE787]/70 align-middle" />
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4 flex items-center justify-between rounded-xl border border-[#232A32] bg-[#12161B] px-5 py-4">
+            <div>
+              <div className="font-['Space_Grotesk'] text-lg font-semibold text-white">3+ yrs</div>
+              <div className="font-['JetBrains_Mono'] text-[11px] text-[#8B96A3]">production experience</div>
+            </div>
+            <div className="h-8 w-px bg-[#232A32]" />
+            <div>
+              <div className="font-['Space_Grotesk'] text-lg font-semibold text-white">4</div>
+              <div className="font-['JetBrains_Mono'] text-[11px] text-[#8B96A3]">sites delivered</div>
+            </div>
+            <div className="h-8 w-px bg-[#232A32]" />
+            <div>
+              <div className="font-['Space_Grotesk'] text-lg font-semibold text-[#7EE787]">100%</div>
+              <div className="font-['JetBrains_Mono'] text-[11px] text-[#8B96A3]">uptime record</div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 }

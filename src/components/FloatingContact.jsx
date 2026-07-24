@@ -10,19 +10,16 @@ const actions = [
     label: 'WhatsApp',
     icon: MessageCircle,
     href: 'https://wa.me/919352134907',
-    gradient: 'from-green-500 to-emerald-600',
   },
   {
     label: 'Call',
     icon: Phone,
     href: 'tel:+919352134907',
-    gradient: 'from-purple-500 to-pink-600',
   },
   {
     label: 'Email',
     icon: Mail,
     href: 'mailto:ankitdoi82@gmail.com',
-    gradient: 'from-cyan-500 to-blue-600',
   },
 ];
 
@@ -49,11 +46,11 @@ export default function FloatingContact() {
                 whileTap={{ scale: 0.95 }}
                 className="group relative flex items-center gap-3"
               >
-                <span className="hidden sm:block px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-sm font-medium text-slate-200 shadow-lg whitespace-nowrap">
+                <span className="hidden whitespace-nowrap rounded-lg border border-[#232A32] bg-[#12161B] px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#8B96A3] shadow-lg sm:block">
                   {action.label}
                 </span>
-                <div className={`p-3.5 bg-gradient-to-br ${action.gradient} rounded-full shadow-lg shadow-black/30`}>
-                  <action.icon className="w-5 h-5 text-white" />
+                <div className="rounded-full border border-[#232A32] bg-[#12161B] p-3.5 shadow-lg shadow-black/30 transition-colors duration-300 group-hover:border-[#7EE787]/40">
+                  <action.icon className="h-5 w-5 text-[#7EE787]" />
                 </div>
               </motion.a>
             ))}
@@ -67,13 +64,13 @@ export default function FloatingContact() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
         animate={{ rotate: isOpen ? 45 : 0 }}
-        className="relative p-4 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full shadow-xl shadow-cyan-500/30"
+        className="relative rounded-full bg-[#7EE787] p-4 shadow-xl shadow-[#7EE787]/20"
       >
         {!isOpen && (
-          <span className="absolute inset-0 rounded-full bg-cyan-500/60 animate-ping"></span>
+          <span className="absolute inset-0 animate-ping rounded-full bg-[#7EE787]/60"></span>
         )}
         <span className="relative block">
-          {isOpen ? <X className="w-6 h-6 text-white" /> : <MessageCircle className="w-6 h-6 text-white" />}
+          {isOpen ? <X className="h-6 w-6 text-[#0B0E11]" /> : <MessageCircle className="h-6 w-6 text-[#0B0E11]" />}
         </span>
       </motion.button>
     </div>
