@@ -2,6 +2,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Database, Server, Box, GitBranch, Network } from 'lucide-react';
+import SpotlightCard from './SpotlightCard';
 
 const skills = [
   {
@@ -27,7 +28,7 @@ const skills = [
   {
     category: 'Tools & Collaboration',
     icon: GitBranch,
-    items: ['Git & GitHub', 'Maven', 'Docker', 'Postman', 'Cloudinary', 'Agile', 'Razorpay integration','Groq / LLM APIs'],
+    items: ['Git & GitHub', 'Maven', 'Docker', 'Postman', 'Cloudinary', 'Agile', 'Razorpay integration', 'Groq / LLM APIs'],
   },
   {
     category: 'Familiar with',
@@ -59,7 +60,7 @@ export default function Skills() {
             Technical Skills
           </h2>
           <p className="mt-3 max-w-xl text-[#8B96A3]">
-            The stack behind secure, scalable backend systems — grouped the way it actually gets used.
+            The stack behind secure, scalable backend systems — grouped the way it actually gets used in production.
           </p>
         </motion.div>
 
@@ -70,36 +71,41 @@ export default function Skills() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className={`group relative rounded-2xl border p-6 transition-colors duration-300 ${
-                skill.exploring
-                  ? 'border-dashed border-[#232A32] bg-transparent hover:border-[#8B96A3]/50'
-                  : 'border-[#232A32] bg-[#12161B] hover:border-[#7EE787]/40'
-              }`}
             >
-              <div className="mb-5 flex items-center gap-3">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#232A32] bg-[#0F1317] text-[#7EE787]">
-                  <skill.icon className="h-4.5 w-4.5" />
+              <SpotlightCard
+                className={`p-6 ${
+                  skill.exploring
+                    ? 'border-dashed border-[#232A32] bg-transparent'
+                    : 'border-[#232A32] bg-[#12161B]'
+                }`}
+              >
+                <div className="mb-5 flex items-center gap-3">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#232A32] bg-[#0F1317] text-[#7EE787]">
+                    <skill.icon className="h-4.5 w-4.5" />
+                  </div>
+                  <h3 className="font-['Space_Grotesk'] text-lg font-semibold text-white">
+                    {skill.category}
+                  </h3>
+                  {skill.exploring && (
+                    <span className="ml-auto font-['JetBrains_Mono'] text-[10px] uppercase tracking-wide text-[#8B96A3]">
+                      exploring
+                    </span>
+                  )}
                 </div>
-                <h3 className="font-['Space_Grotesk'] text-lg font-semibold text-white">
-                  {skill.category}
-                </h3>
-                {skill.exploring && (
-                  <span className="ml-auto font-['JetBrains_Mono'] text-[10px] uppercase tracking-wide text-[#8B96A3]">
-                    exploring
-                  </span>
-                )}
-              </div>
 
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-md border border-[#232A32] bg-[#0F1317] px-2.5 py-1 font-['JetBrains_Mono'] text-xs text-[#C4CBD2] transition-colors group-hover:border-[#7EE787]/25"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+                <div className="flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <motion.span
+                      key={item}
+                      whileHover={{ scale: 1.06, y: -2 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                      className="cursor-default rounded-md border border-[#232A32] bg-[#0F1317] px-2.5 py-1 font-['JetBrains_Mono'] text-xs text-[#C4CBD2] transition-colors hover:border-[#7EE787]/50 hover:text-white"
+                    >
+                      {item}
+                    </motion.span>
+                  ))}
+                </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

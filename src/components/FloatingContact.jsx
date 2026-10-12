@@ -1,10 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { MessageCircle, Phone, Mail, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { MessageCircle, Phone, Mail, X, ArrowUp } from 'lucide-react';
 
-// Uses the same phone/email already shown in Contact.jsx — update both
-// places together if either one changes.
 const actions = [
   {
     label: 'WhatsApp',
@@ -25,9 +23,40 @@ const actions = [
 
 export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showTopBtn, setShowTopBtn] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowTopBtn(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      {/* Scroll to Top Button */}
+      <AnimatePresence>
+        {showTopBtn && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.6, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.6, y: 10 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.92 }}
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+            className="grid h-10 w-10 place-items-center rounded-full border border-[#232A32] bg-[#12161B]/90 text-[#8B96A3] shadow-lg backdrop-blur-md transition-colors hover:border-[#7EE787]/50 hover:text-[#7EE787]"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       <AnimatePresence>
         {isOpen && (
           <motion.div className="flex flex-col items-end gap-3">
@@ -67,7 +96,7 @@ export default function FloatingContact() {
         className="relative rounded-full bg-[#7EE787] p-4 shadow-xl shadow-[#7EE787]/20"
       >
         {!isOpen && (
-          <span className="absolute inset-0 animate-ping rounded-full bg-[#7EE787]/60"></span>
+          <span className="absolute inset-0 animate-ping rounded-full bg-[#7EE787]/60" />
         )}
         <span className="relative block">
           {isOpen ? <X className="h-6 w-6 text-[#0B0E11]" /> : <MessageCircle className="h-6 w-6 text-[#0B0E11]" />}

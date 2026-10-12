@@ -2,15 +2,16 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { MessagesSquare, Layers, Database, Server, MonitorSmartphone, FlaskConical, Rocket, Wrench } from 'lucide-react';
+import SpotlightCard from './SpotlightCard';
 
 const steps = [
   { icon: MessagesSquare, title: 'Understand the requirement', desc: 'Clarify the actual business problem before writing a single line of code.' },
   { icon: Layers, title: 'Plan the architecture', desc: 'Decide how the system should be structured so it stays maintainable as it grows.' },
-  { icon: Database, title: 'Design the database', desc: 'Model the data so queries stay fast and the schema doesn\u2019t need a rewrite later.' },
+  { icon: Database, title: 'Design the database', desc: 'Model the data so queries stay fast and the schema doesn’t need a rewrite later.' },
   { icon: Server, title: 'Build the backend & APIs', desc: 'Secure, documented REST APIs — the part that actually runs your business logic.' },
   { icon: MonitorSmartphone, title: 'Build the frontend', desc: 'A clean interface that connects to the backend without extra friction.' },
   { icon: FlaskConical, title: 'Test & integrate', desc: 'Check the pieces work together correctly before anything goes live.' },
-  { icon: Rocket, title: 'Deploy', desc: 'Ship it to production with a process that doesn\u2019t break what already works.' },
+  { icon: Rocket, title: 'Deploy', desc: 'Ship it to production with a process that doesn’t break what already works.' },
   { icon: Wrench, title: 'Maintain & improve', desc: 'Stay involved after launch — bug fixes, performance tuning, new features.' },
 ];
 
@@ -36,7 +37,7 @@ export default function Process() {
             From Idea to Production
           </h2>
           <p className="mt-3 max-w-xl text-[#8B96A3]">
-            The same process for a client website and a production backend system.
+            The same disciplined engineering process for client systems and production backend platforms.
           </p>
         </motion.div>
 
@@ -47,22 +48,19 @@ export default function Process() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="relative rounded-2xl border border-[#232A32] bg-[#12161B] p-6 transition-colors hover:border-[#7EE787]/30"
             >
-              <div className="mb-4 flex items-center justify-between">
-                <div className="grid h-10 w-10 place-items-center rounded-lg border border-[#232A32] bg-[#0F1317] text-[#7EE787]">
-                  <step.icon className="h-4.5 w-4.5" />
+              <SpotlightCard className="h-full p-6">
+                <div className="mb-4 flex items-center justify-between">
+                  <div className="grid h-10 w-10 place-items-center rounded-lg border border-[#232A32] bg-[#0F1317] text-[#7EE787]">
+                    <step.icon className="h-4.5 w-4.5" />
+                  </div>
+                  <span className="font-['JetBrains_Mono'] text-sm text-[#7EE787]/70">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                 </div>
-                <span className="font-['JetBrains_Mono'] text-sm text-[#7EE787]/70">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-              </div>
-              <h3 className="mb-2 font-['Space_Grotesk'] text-lg font-semibold text-white">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-[#8B96A3]">{step.desc}</p>
-
-              {index < steps.length - 1 && (
-                <span className="absolute -right-2.5 top-1/2 hidden h-px w-5 -translate-y-1/2 bg-[#232A32] lg:block" />
-              )}
+                <h3 className="mb-2 font-['Space_Grotesk'] text-lg font-semibold text-white">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-[#8B96A3]">{step.desc}</p>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

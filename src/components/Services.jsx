@@ -2,13 +2,14 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Server, Monitor, Building } from 'lucide-react';
+import SpotlightCard from './SpotlightCard';
 
 const services = [
   {
-    title: 'Backend Development & APIs (Spring Boot)',
+    title: 'Backend Development & Real-Time APIs',
     icon: Server,
-    items: ['REST APIs', 'Authentication', 'Database-backed systems', 'Performance fixes'],
-    description: 'Secure, well-architected backend systems built on Spring Boot — the foundation everything else runs on.',
+    items: ['WebSockets & Event-Driven Systems', 'REST API Architecture', 'Database & Query Tuning', 'Concurrency & Race Condition Fixes'],
+    description: 'High-throughput, resilient backend systems built on Spring Boot — engineered to withstand heavy concurrent loads without breaking.',
     size: 'large',
   },
   {
@@ -49,7 +50,7 @@ export default function Services() {
             What I Offer
           </h2>
           <p className="mt-3 max-w-xl text-[#8B96A3]">
-            Specialized backend development and complete web solutions for modern businesses.
+            Specialized backend development, real-time event streaming, and complete web solutions.
           </p>
         </motion.div>
 
@@ -66,8 +67,8 @@ export default function Services() {
                   : 'md:col-span-1'
               }
             >
-              <div
-                className={`h-full rounded-3xl border border-[#232A32] bg-[#12161B] transition-colors hover:border-[#7EE787]/30 ${
+              <SpotlightCard
+                className={`h-full ${
                   service.size === 'small' ? 'p-6' : 'p-8'
                 }`}
               >
@@ -99,7 +100,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
