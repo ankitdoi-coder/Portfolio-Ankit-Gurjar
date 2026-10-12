@@ -7,7 +7,7 @@ const skills = [
   {
     category: 'Backend Development',
     icon: Code2,
-    items: ['Java 17', 'Spring Boot', 'Spring MVC', 'REST API Design', 'Hibernate & JPA', 'SQL', 'Perf. optimization'],
+    items: ['Java 17', 'Spring Boot', 'Spring MVC', 'WebSockets', 'Spring Events', 'REST API Design', 'Hibernate & JPA', 'SQL', 'Perf. optimization'],
   },
   {
     category: 'Frontend Integration',

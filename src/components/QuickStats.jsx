@@ -8,7 +8,7 @@ import { useRef } from 'react';
 const stats = [
   { value: '45+', label: 'REST APIs built' },
   { value: '5', label: 'full-stack Java apps shipped' },
-  { value: '15+', label: 'APIs running in production' },
+  { value: '20+', label: 'APIs running in production' },
   { value: '480+', label: 'commits, sole engineer (flagship)' },
 ];
 

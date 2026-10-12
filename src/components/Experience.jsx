@@ -5,6 +5,19 @@ import { Briefcase } from 'lucide-react';
 
 const experiences = [
     {
+        title: 'Backend Engineer (Java / Spring Boot)',
+        company: 'Navrasa IT Solutions',
+        period: 'July 2026 - Present',
+        description: 'Engineering high-throughput backend services for a real-time stock and cryptocurrency trading platform, tackling critical data synchronization, concurrency, and real-time streaming challenges.',
+        achievements: [
+            'Architected real-time market data streaming using Spring WebSockets (STOMP), broadcasting live stock and crypto tick updates to active client sessions',
+            'Implemented an in-memory event-driven architecture using Spring Events (@EventListener & ApplicationEventPublisher) to asynchronously process and decouple trading events with high reliability and zero external broker overhead',
+            'Resolved complex real-time concurrency bottlenecks and race conditions during high-volatility trading using thread-safe synchronization and strict transactional isolation',
+            'Mitigated WebSocket connection drops and stale price feeds by implementing heartbeat monitoring, reconnection resilience, and optimized payload serialization',
+            'Optimized database queries and indexing for time-critical order books and trade history to achieve low-latency read and write performance'
+        ]
+    },
+    {
         title: 'Software Developer (Backend – Spring Boot)',
         company: 'SAG Infotech Pvt. Ltd.',
         period: 'Nov 2025 - Feb 2026',

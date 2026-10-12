@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 import pfp from '../assets/pfp.png';
 
-const STACK = ['Java 17', 'Spring Boot 3', 'PostgreSQL', 'Redis', 'JWT', 'REST APIs', 'Angular'];
+const STACK = ['Java 17', 'Spring Boot 3', 'WebSockets', 'PostgreSQL', 'Redis', 'REST APIs', 'Angular'];
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 16 },
@@ -132,7 +132,7 @@ export default function Hero() {
 {`{
   "name": "Ankit Kumar Gurjar",
   "role": "Backend Developer",
-  "focus": ["Spring Boot", "REST APIs", "Redis"],
+  "focus": ["Spring Boot", "WebSockets", "Spring Events", "REST APIs"],
   "also_ships": "full business websites",
   "status": "production-ready"
 }`}
@@ -146,7 +146,7 @@ export default function Hero() {
 
           <div className="mt-4 flex items-center justify-between rounded-xl border border-[#232A32] bg-[#12161B] px-5 py-4">
             <div>
-              <div className="font-['Space_Grotesk'] text-lg font-semibold text-white"></div>
+              <div className="font-['Space_Grotesk'] text-lg font-semibold text-white">1.5+ yrs</div>
               <div className="font-['JetBrains_Mono'] text-[11px] text-[#8B96A3]">production experience</div>
             </div>
             <div className="h-8 w-px bg-[#232A32]" />
