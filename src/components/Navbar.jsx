@@ -70,15 +70,15 @@ export default function Navbar() {
                                 whileHover={{ scale: 1.05 }}
                                 className="h-10 w-10 overflow-hidden rounded-lg border border-[#232A32] transition-colors group-hover:border-[#7EE787]/50"
                             >
-                                <img src={pfp} alt="Ankit Kumar Gurjar" className="h-full w-full object-cover" loading="eager" />
+                                <img src={pfp} alt="Ankit Gurjar - Java Backend Developer & Top Website Developer" className="h-full w-full object-cover" loading="eager" />
                             </motion.div>
                             <div className="leading-tight">
                                 <div className="font-['Space_Grotesk'] text-base font-semibold text-white">
-                                    Ankit Kumar Gurjar
+                                    Ankit Gurjar
                                 </div>
                                 <div className="flex items-center gap-1.5 font-['JetBrains_Mono'] text-[10px] text-[#7EE787]">
                                     <span className="h-1.5 w-1.5 rounded-full bg-[#7EE787] animate-pulse" />
-                                    ~/backend-developer
+                                    ~/java-backend-developer
                                 </div>
                             </div>
                         </a>

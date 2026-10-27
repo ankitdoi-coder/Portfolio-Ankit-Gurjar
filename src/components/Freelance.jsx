@@ -98,13 +98,13 @@ export default function Freelance() {
         >
           <div className="flex items-center gap-2 font-['JetBrains_Mono'] text-xs text-[#7EE787]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#7EE787]" />
-            // for-businesses
+            // for-businesses · top-website-developer
           </div>
           <h2 className="mt-3 font-['Space_Grotesk'] text-4xl font-semibold text-white sm:text-5xl">
-            I Build Digital Products for Businesses
+            Top Website Developer for Modern Businesses
           </h2>
           <p className="mt-3 max-w-2xl text-[#8B96A3]">
-            Whether you need a professional website or a custom full-stack application, I can build and deliver it.
+            As a top website developer and Java backend engineer, I build fast, high-converting websites and scalable full-stack applications designed to grow your business.
           </p>
         </motion.div>
 
@@ -218,10 +218,10 @@ export default function Freelance() {
           className="rounded-3xl border border-[#232A32] bg-[#12161B] p-10 text-center"
         >
           <h3 className="mb-3 font-['Space_Grotesk'] text-2xl font-semibold text-white sm:text-3xl">
-            Have a project in mind?
+            Looking for a Top Website Developer or Java Engineer?
           </h3>
           <p className="mx-auto mb-6 max-w-xl text-[#8B96A3]">
-            Let's build something that actually works for your business — from a landing page to a full custom application.
+            Let's build something exceptional for your business — whether you need a high-converting website, an API overhaul, or a scalable full-stack application.
           </p>
           <a
             href="#contact"

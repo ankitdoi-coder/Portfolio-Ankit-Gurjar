@@ -51,7 +51,7 @@ export default function Hero() {
         <div>
           <motion.div {...fadeUp(0)} className="mb-4 flex flex-wrap items-center gap-3">
             <div className="h-9 w-9 overflow-hidden rounded-lg border border-[#232A32]">
-              <img src={pfp} alt="Ankit Kumar Gurjar" className="h-full w-full object-cover" loading="eager" />
+              <img src={pfp} alt="Ankit Gurjar - Java Backend Developer & Top Website Developer" className="h-full w-full object-cover" loading="eager" />
             </div>
             <span className="font-['JetBrains_Mono'] text-xs tracking-wide text-[#8B96A3]">
               <span className="text-[#7EE787]">$</span> whoami
@@ -71,12 +71,16 @@ export default function Hero() {
             {...fadeUp(0.1)}
             className="font-['Space_Grotesk'] text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]"
           >
+            <span className="mb-3 block font-['JetBrains_Mono'] text-sm sm:text-base font-medium tracking-normal text-[#7EE787]">
+              Ankit Gurjar — Java Backend Developer &amp; Top Website Developer / Engineer
+            </span>
             Backend systems that hold up when it's not a demo anymore.
           </motion.h1>
 
-          <motion.p {...fadeUp(0.2)} className="mt-6 max-w-lg text-lg leading-relaxed text-[#8B96A3]">
-            I'm Ankit — a Java / Spring Boot engineer specializing in high-throughput real-time systems, 
-            WebSockets, and secure REST APIs that perform under heavy production load.
+          <motion.p {...fadeUp(0.2)} className="mt-6 max-w-xl text-lg leading-relaxed text-[#8B96A3]">
+            I'm <strong className="font-semibold text-white">Ankit Gurjar</strong> — a dedicated{' '}
+            <strong className="font-semibold text-[#C4CBD2]">Java Backend Developer</strong> and{' '}
+            <strong className="font-semibold text-[#C4CBD2]">top website developer &amp; engineer</strong> specializing in high-throughput real-time systems, Spring Boot microservices, WebSockets, and resilient business web applications.
           </motion.p>
 
           <motion.div {...fadeUp(0.3)} className="mt-8 flex flex-wrap gap-2">
@@ -195,10 +199,10 @@ export default function Hero() {
               </p>
               <pre className="mt-3 whitespace-pre-wrap text-[#C4CBD2]">
 {`{
-  "name": "Ankit Kumar Gurjar",
-  "role": "Backend Engineer",
+  "name": "Ankit Gurjar",
+  "role": "Java Backend Developer & Top Website Engineer",
   "company": "Navrasa IT Solutions",
-  "focus": ["Spring Boot", "WebSockets", "Spring Events", "REST APIs"],
+  "focus": ["Java 17", "Spring Boot", "WebSockets", "REST APIs", "Modern Web Dev"],
   "specialty": "Real-time trading & concurrency",
   "status": "production-ready"
 }`}

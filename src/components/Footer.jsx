@@ -16,9 +16,14 @@ export default function Footer() {
                         <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#7EE787]">
                             <Code2 className="h-5 w-5 text-[#0B0E11]" />
                         </div>
-                        <span className="font-['Space_Grotesk'] text-xl font-semibold text-white">
-                            Ankit Kumar Gurjar
-                        </span>
+                        <div>
+                            <span className="font-['Space_Grotesk'] text-xl font-semibold text-white">
+                                Ankit Gurjar
+                            </span>
+                            <span className="block font-['JetBrains_Mono'] text-xs text-[#8B96A3]">
+                                Java Backend Developer &amp; Top Website Developer
+                            </span>
+                        </div>
                     </motion.div>
 
                     <motion.div
@@ -56,9 +61,9 @@ export default function Footer() {
                         // built with react, tailwind css & framer motion
                     </p>
                     <p className="flex flex-wrap items-center justify-center gap-1 text-sm text-[#8B96A3]">
-                        © {new Date().getFullYear()} All rights reserved
+                        © {new Date().getFullYear()} Ankit Gurjar. All rights reserved
                         <span className="inline-flex items-center gap-1">
-                            • Made with <Heart className="h-4 w-4 fill-[#7EE787] text-[#7EE787]" /> by Ankit Kumar Gurjar (Software Engineer)
+                            • Top Website Developer &amp; Java Backend Engineer
                         </span>
                     </p>
                 </motion.div>

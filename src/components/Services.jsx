@@ -6,24 +6,24 @@ import SpotlightCard from './SpotlightCard';
 
 const services = [
   {
-    title: 'Backend Development & Real-Time APIs',
+    title: 'Java Backend Developer & Real-Time APIs',
     icon: Server,
-    items: ['WebSockets & Event-Driven Systems', 'REST API Architecture', 'Database & Query Tuning', 'Concurrency & Race Condition Fixes'],
-    description: 'High-throughput, resilient backend systems built on Spring Boot — engineered to withstand heavy concurrent loads without breaking.',
+    items: ['Spring Boot & Microservices', 'WebSockets & Event-Driven Systems', 'REST API Architecture', 'Database & Query Tuning', 'Concurrency & Race Condition Fixes'],
+    description: 'High-throughput, resilient backend systems engineered with Java 17 and Spring Boot to withstand heavy concurrent loads with zero downtime.',
     size: 'large',
   },
   {
-    title: 'Custom Web Applications',
+    title: 'Top Website Developer & Custom Web Apps',
     icon: Monitor,
-    items: ['Admin panels', 'Dashboards', 'Business tools'],
-    description: 'Complete web applications tailored to your business needs.',
+    items: ['Modern Full-Stack Applications', 'Admin Panels & Dashboards', 'React & Vite Architecture', 'High Performance & Speed Optimization'],
+    description: 'End-to-end web engineering delivering fast, responsive, and SEO-optimized web applications tailored for growing businesses.',
     size: 'medium',
   },
   {
-    title: 'Business Websites & Booking Systems',
+    title: 'Business Websites & Engineering Services',
     icon: Building,
-    items: ['Hotels', 'Restros', 'Local businesses'],
-    description: 'Professional websites and booking systems for local businesses.',
+    items: ['Lead Generation & High CTR', 'Interactive Booking Systems', 'Mobile-First Responsive Design', 'Local SEO & Google Search Ranking'],
+    description: 'High-converting business websites engineered for restaurants, clinics, and enterprises with seamless user experiences.',
     size: 'small',
   },
 ];
@@ -44,13 +44,13 @@ export default function Services() {
         >
           <div className="flex items-center gap-2 font-['JetBrains_Mono'] text-xs text-[#7EE787]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#7EE787]" />
-            // services
+            // engineering-services
           </div>
           <h2 className="mt-3 font-['Space_Grotesk'] text-4xl font-semibold text-white sm:text-5xl">
-            What I Offer
+            Top Website Developer &amp; Engineering Services
           </h2>
           <p className="mt-3 max-w-xl text-[#8B96A3]">
-            Specialized backend development, real-time event streaming, and complete web solutions.
+            As a dedicated Java backend developer and top website engineer, I provide high-concurrency systems, real-time APIs, and top-tier web solutions.
           </p>
         </motion.div>
 
