@@ -69,7 +69,7 @@ export default function Contact() {
     ];
 
     return (
-        <section id="contact" className="relative bg-[#0B0E11] px-4 py-24 sm:px-6">
+        <section id="contact" className="relative overflow-hidden bg-[#0B0E11] px-4 py-24 sm:px-6">
             <div className="mx-auto max-w-5xl">
                 <motion.div
                     ref={ref}
@@ -116,8 +116,8 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="space-y-4"
                     >
@@ -127,7 +127,7 @@ export default function Contact() {
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                                className="relative border-l-2 border-[#232A32] pl-8 transition-colors hover:border-[#7EE787]/40"
+                                className="relative ml-2 sm:ml-0 border-l-2 border-[#232A32] pl-6 sm:pl-8 transition-colors hover:border-[#7EE787]/40"
                             >
                                 <div className="absolute -left-[13px] top-0 grid h-6 w-6 place-items-center rounded-full bg-[#7EE787]">
                                     <item.icon className="h-3 w-3 text-[#0B0E11]" />

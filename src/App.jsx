@@ -13,9 +13,9 @@ import FloatingContact from './components/FloatingContact';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-[#0B0E11] text-[#E6E9EC] w-full max-w-full overflow-x-hidden">
       <Navbar />
-      <main id="home">
+      <main id="home" className="w-full max-w-full overflow-x-hidden">
         <Hero />
         <QuickStats />
         <Skills />

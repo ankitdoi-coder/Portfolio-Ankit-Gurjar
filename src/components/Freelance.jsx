@@ -176,11 +176,11 @@ export default function Freelance() {
                     <span className="font-semibold text-[#C4CBD2]">Built: </span>{project.built}
                   </p>
 
-                  <ul className="mb-5 grid grid-cols-2 gap-x-3 gap-y-1.5">
+                  <ul className="mb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5">
                     {project.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-xs text-[#C4CBD2]">
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#7EE787]" />
-                        {f}
+                      <li key={f} className="flex items-start gap-2 text-xs text-[#C4CBD2] leading-snug">
+                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#7EE787]" />
+                        <span className="break-words">{f}</span>
                       </li>
                     ))}
                   </ul>

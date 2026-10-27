@@ -56,7 +56,7 @@ export default function Experience() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section id="experience" className="relative bg-[#0B0E11] px-4 py-24 sm:px-6">
+        <section id="experience" className="relative overflow-hidden bg-[#0B0E11] px-4 py-24 sm:px-6">
             <div className="mx-auto max-w-5xl">
                 <motion.div
                     ref={ref}
@@ -81,10 +81,10 @@ export default function Experience() {
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={exp.title + exp.company}
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={isInView ? { opacity: 1, x: 0 } : {}}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.5, delay: index * 0.15 }}
-                            className="relative border-l-2 border-[#232A32] pl-8 transition-colors hover:border-[#7EE787]/40"
+                            className="relative ml-2 sm:ml-0 border-l-2 border-[#232A32] pl-6 sm:pl-8 transition-colors hover:border-[#7EE787]/40"
                         >
                             {/* Icon Indicator */}
                             <div className={`absolute -left-[13px] top-0 grid h-6 w-6 place-items-center rounded-full ${

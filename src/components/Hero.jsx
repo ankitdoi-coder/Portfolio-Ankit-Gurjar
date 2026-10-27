@@ -22,7 +22,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#0B0E11] px-4 pt-28 pb-16 text-[#E6E9EC] sm:px-6">
+    <section className="relative min-h-screen overflow-hidden isolate bg-[#0B0E11] px-4 pt-28 pb-16 text-[#E6E9EC] sm:px-6">
       {/* subtle grid */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -36,13 +36,13 @@ export default function Hero() {
       {/* Animated glowing ambient orbs */}
       <motion.div
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.15, 0.28, 0.15],
-          x: [0, 30, 0],
-          y: [0, -25, 0],
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.25, 0.15],
+          x: [0, 20, 0],
+          y: [0, -15, 0],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        className="pointer-events-none absolute -top-24 right-1/4 h-96 w-96 rounded-full bg-[#7EE787]/20 blur-[130px]"
+        className="pointer-events-none absolute -top-24 right-1/4 h-72 w-72 sm:h-96 sm:w-96 max-w-full rounded-full bg-[#7EE787]/20 blur-[80px] sm:blur-[130px]"
       />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-b from-[#7EE787]/[0.06] to-transparent" />
 
@@ -102,7 +102,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-lg bg-[#7EE787] px-6 py-3.5 font-['Space_Grotesk'] text-sm font-semibold text-[#0B0E11] shadow-lg shadow-[#7EE787]/20 transition-all hover:shadow-[#7EE787]/30"
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#7EE787] px-6 py-3.5 font-['Space_Grotesk'] text-sm font-semibold text-[#0B0E11] shadow-lg shadow-[#7EE787]/20 transition-all hover:shadow-[#7EE787]/30"
             >
               Fix or Build Backend APIs
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -111,7 +111,7 @@ export default function Hero() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               href="#projects"
-              className="rounded-lg border border-[#232A32] px-6 py-3.5 font-['Space_Grotesk'] text-sm font-semibold text-[#E6E9EC] transition-colors hover:border-[#7EE787]/50 hover:text-[#7EE787]"
+              className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg border border-[#232A32] px-6 py-3.5 font-['Space_Grotesk'] text-sm font-semibold text-[#E6E9EC] transition-colors hover:border-[#7EE787]/50 hover:text-[#7EE787]"
             >
               Explore Projects
             </motion.a>
@@ -122,7 +122,7 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
               download="Ankit_Kumar_Gurjar_Resume.pdf"
-              className="inline-flex items-center gap-2 rounded-lg border border-[#232A32] px-5 py-3.5 text-sm font-medium text-[#8B96A3] transition-colors hover:text-[#E6E9EC]"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-[#232A32] px-5 py-3.5 text-sm font-medium text-[#8B96A3] transition-colors hover:text-[#E6E9EC]"
             >
               <Download className="h-4 w-4" /> Resume
             </motion.a>
@@ -197,7 +197,7 @@ export default function Hero() {
               <p className="text-[#8B96A3]">
                 <span className="text-[#7EE787]">$</span> curl -s api.ankit.dev/profile | jq
               </p>
-              <pre className="mt-3 whitespace-pre-wrap text-[#C4CBD2]">
+              <pre className="mt-3 whitespace-pre-wrap break-words overflow-x-auto text-xs sm:text-[13px] text-[#C4CBD2]">
 {`{
   "name": "Ankit Gurjar",
   "role": "Java Backend Developer & Top Website Engineer",
@@ -214,20 +214,18 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-4 flex items-center justify-between rounded-xl border border-[#232A32] bg-[#12161B] px-5 py-4">
-            <div>
-              <div className="font-['Space_Grotesk'] text-lg font-semibold text-white">1.5+ yrs</div>
-              <div className="font-['JetBrains_Mono'] text-[11px] text-[#8B96A3]">production experience</div>
+          <div className="mt-4 grid grid-cols-3 divide-x divide-[#232A32] rounded-xl border border-[#232A32] bg-[#12161B] px-3 py-3 sm:px-5 sm:py-4 text-center">
+            <div className="px-1">
+              <div className="font-['Space_Grotesk'] text-base sm:text-lg font-semibold text-white">1.5+ yrs</div>
+              <div className="font-['JetBrains_Mono'] text-[10px] sm:text-[11px] text-[#8B96A3] leading-tight mt-0.5">production exp</div>
             </div>
-            <div className="h-8 w-px bg-[#232A32]" />
-            <div>
-              <div className="font-['Space_Grotesk'] text-lg font-semibold text-white">4</div>
-              <div className="font-['JetBrains_Mono'] text-[11px] text-[#8B96A3]">sites delivered</div>
+            <div className="px-1">
+              <div className="font-['Space_Grotesk'] text-base sm:text-lg font-semibold text-white">4</div>
+              <div className="font-['JetBrains_Mono'] text-[10px] sm:text-[11px] text-[#8B96A3] leading-tight mt-0.5">sites delivered</div>
             </div>
-            <div className="h-8 w-px bg-[#232A32]" />
-            <div>
-              <div className="font-['Space_Grotesk'] text-lg font-semibold text-[#7EE787]">100%</div>
-              <div className="font-['JetBrains_Mono'] text-[11px] text-[#8B96A3]">uptime record</div>
+            <div className="px-1">
+              <div className="font-['Space_Grotesk'] text-base sm:text-lg font-semibold text-[#7EE787]">100%</div>
+              <div className="font-['JetBrains_Mono'] text-[10px] sm:text-[11px] text-[#8B96A3] leading-tight mt-0.5">uptime record</div>
             </div>
           </div>
         </motion.div>

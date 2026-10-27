@@ -38,7 +38,7 @@ export default function FloatingContact() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto">
       {/* Scroll to Top Button */}
       <AnimatePresence>
         {showTopBtn && (
@@ -78,7 +78,7 @@ export default function FloatingContact() {
                 <span className="hidden whitespace-nowrap rounded-lg border border-[#232A32] bg-[#12161B] px-3 py-1.5 font-['JetBrains_Mono'] text-xs text-[#8B96A3] shadow-lg sm:block">
                   {action.label}
                 </span>
-                <div className="rounded-full border border-[#232A32] bg-[#12161B] p-3.5 shadow-lg shadow-black/30 transition-colors duration-300 group-hover:border-[#7EE787]/40">
+                <div className="rounded-full border border-[#232A32] bg-[#12161B] p-3 sm:p-3.5 shadow-lg shadow-black/30 transition-colors duration-300 group-hover:border-[#7EE787]/40">
                   <action.icon className="h-5 w-5 text-[#7EE787]" />
                 </div>
               </motion.a>
@@ -90,16 +90,16 @@ export default function FloatingContact() {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? 'Close contact options' : 'Open contact options'}
-        whileHover={{ scale: 1.08 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.92 }}
         animate={{ rotate: isOpen ? 45 : 0 }}
-        className="relative rounded-full bg-[#7EE787] p-4 shadow-xl shadow-[#7EE787]/20"
+        className="relative rounded-full bg-[#7EE787] p-3.5 sm:p-4 shadow-xl shadow-[#7EE787]/20"
       >
         {!isOpen && (
-          <span className="absolute inset-0 animate-ping rounded-full bg-[#7EE787]/60" />
+          <span className="absolute inset-0 animate-pulse rounded-full bg-[#7EE787]/50 pointer-events-none" />
         )}
         <span className="relative block">
-          {isOpen ? <X className="h-6 w-6 text-[#0B0E11]" /> : <MessageCircle className="h-6 w-6 text-[#0B0E11]" />}
+          {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6 text-[#0B0E11]" /> : <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-[#0B0E11]" />}
         </span>
       </motion.button>
     </div>

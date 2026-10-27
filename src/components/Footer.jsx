@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
     return (
-        <footer className="relative border-t border-[#232A32] bg-[#0B0E11] px-4 py-12">
+        <footer className="relative overflow-hidden border-t border-[#232A32] bg-[#0B0E11] px-4 py-12">
             <div className="relative mx-auto max-w-5xl">
                 <div className="mb-8 flex flex-col items-center justify-between gap-6 md:flex-row">
                     <motion.div

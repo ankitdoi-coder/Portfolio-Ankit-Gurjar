@@ -2,24 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-
-* {
+html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  background-color: #0B0E11;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  background-color: #0B0E11;
+  color: #E6E9EC;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon{
-      bottom: 3.5rem;
-      right: 4.5rem;
+
+#root {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  background-color: #0B0E11;
 }
-.what{
-  height:3rem;
-  width:3rem;
+
+/* Prevent any media or embedded elements from expanding viewport */
+img, svg, video, canvas, audio, iframe, embed, object {
+  max-width: 100%;
 }
